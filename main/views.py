@@ -10,5 +10,5 @@ def index(request):
     return render(request, "main/index.html", context=context)
 
 
-def about(request):
-    return HttpResponse("<span>about</span>")
+def contact(request):
+    return render(request, "main/contact.html")
