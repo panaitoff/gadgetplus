@@ -1,4 +1,5 @@
 {% load static %}
+{% load goods_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -31,7 +32,7 @@
 									<li class="hassubs active">
 										<a href="{% url "index" %}">Home</a>
 										<ul>
-											<li><a href="{% url "categories" %}">Categories</a></li>
+											<li><a href="{% url "catalog:index" %}">Catalog</a></li>
 											<li><a href="product.html">Product</a></li>
 											<li><a href="cart.html">Cart</a></li>
 											<li><a href="checkout.html">Check out</a></li>
@@ -39,10 +40,11 @@
 										</ul>
 									</li>
 									<li class="hassubs">
-										<a href="{% url "categories" %}">Categories</a>
+										<a href="{% url "catalog:index" %}">Catalog</a>
 										<ul>
+											{% tag_categories as categories %}
 											{% for el in categories %}
-												<li><a href="{% url "categories" %}">{{ el.name  }}</a></li>
+												<li><a href="{% url "catalog:index" el.slug %}">{{ el.name  }}</a></li>
 											{% endfor %}
 										</ul>
 									</li>
@@ -137,7 +139,7 @@
 					<li class="page_menu_item has-children menu_mm">
 						<a href="index.html">Home<i class="fa fa-angle-down"></i></a>
 						<ul class="page_menu_selection menu_mm">
-							<li class="page_menu_item menu_mm"><a href="{% url "categories" %}">Categories<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="{% url "catalog:index" %}">Catalog<i class="fa fa-angle-down"></i></a></li>
 							<li class="page_menu_item menu_mm"><a href="product.html">Product<i class="fa fa-angle-down"></i></a></li>
 							<li class="page_menu_item menu_mm"><a href="cart.html">Cart<i class="fa fa-angle-down"></i></a></li>
 							<li class="page_menu_item menu_mm"><a href="checkout.html">Checkout<i class="fa fa-angle-down"></i></a></li>
@@ -145,12 +147,12 @@
 						</ul>
 					</li>
 					<li class="page_menu_item has-children menu_mm">
-						<a href="{% url "categories" %}">Categories<i class="fa fa-angle-down"></i></a>
+						<a href="{% url "catalog:index" %}">Catalog<i class="fa fa-angle-down"></i></a>
 						<ul class="page_menu_selection menu_mm">
-							<li class="page_menu_item menu_mm"><a href="{% url "categories" %}">Category<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="{% url "categories" %}">Category<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="{% url "categories" %}">Category<i class="fa fa-angle-down"></i></a></li>
-							<li class="page_menu_item menu_mm"><a href="{% url "categories" %}">Category<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="{% url "catalog:index" %}">Category<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="{% url "catalog:index" %}">Category<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="{% url "catalog:index" %}">Category<i class="fa fa-angle-down"></i></a></li>
+							<li class="page_menu_item menu_mm"><a href="{% url "catalog:index" %}">Category<i class="fa fa-angle-down"></i></a></li>
 						</ul>
 					</li>
 					<li class="page_menu_item menu_mm"><a href="index.html">Accessories<i class="fa fa-angle-down"></i></a></li>

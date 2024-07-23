@@ -72,7 +72,7 @@
 							<div class="product_image"><img src="{{ el.image.url }}" alt=""></div>
 							<div class="product_extra product_new"><a href="categories.html">New</a></div>
 							<div class="product_content">
-								<div class="product_title"><a href="product.html">{{ el.name}} </a></div>
+								<div class="product_title"><a href="{% url "catalog:product" el.slug %}">{{ el.name }} </a></div>
 								<div class="product_price">${{ el.price }}</div>
 							</div>
 						</div>
