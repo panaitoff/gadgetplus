@@ -7,7 +7,6 @@ class Categories(models.Model):
 
     class Meta:
         db_table = 'category'
-    
 
     def __str__(self):
         return self.name
@@ -26,6 +25,7 @@ class Products(models.Model):
 
     class Meta:
         db_table = 'product'
+        ordering = ("id",)
     
     def __str__(self):
         return self.name
